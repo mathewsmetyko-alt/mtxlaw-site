@@ -3,68 +3,356 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MTX Law</title>
-  <meta name="description" content="MTX Law website coming soon.">
+  <title>MTX Law | Texas Legal Services</title>
+  <meta name="description" content="MTX Law is a Texas-based law firm providing legal services to clients in Texas.">
   <style>
+    :root {
+      --bg: #f6f4ef;
+      --card: #ffffff;
+      --text: #1f1f1f;
+      --muted: #66625d;
+      --accent: #8a6b42;
+      --border: #e5dfd3;
+      --shadow: 0 12px 32px rgba(0,0,0,.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      background: #f6f4ef;
-      color: #1f1f1f;
-      display: grid;
-      place-items: center;
-      min-height: 100vh;
-      padding: 24px;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
-    .card {
-      max-width: 760px;
-      background: white;
-      padding: 56px 44px;
-      border-radius: 16px;
-      box-shadow: 0 12px 32px rgba(0,0,0,.08);
-      text-align: center;
-      border: 1px solid #e5dfd3;
+
+    a { color: inherit; }
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 22px;
     }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 84px 0 56px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 58px 48px;
+    }
+
     .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
       font-size: 12px;
-      letter-spacing: .2em;
+      letter-spacing: .20em;
       text-transform: uppercase;
-      color: #8a6b42;
-      margin: 0 0 18px;
     }
+
     h1 {
-      margin: 0 0 18px;
-      font-size: 48px;
+      margin: 0;
+      font-size: clamp(40px, 6vw, 62px);
       line-height: 1.1;
     }
-    p {
-      font-size: 19px;
-      line-height: 1.7;
-      margin: 14px 0;
+
+    .lead {
+      max-width: 760px;
+      margin: 24px 0 0;
+      font-size: 22px;
+      color: #2b2b2b;
     }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    section {
+      padding: 20px 0 34px;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 36px 34px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 31px;
+      line-height: 1.15;
+    }
+
+    p {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    ul {
+      margin: 12px 0 0 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 20px;
+      background: #fcfbf8;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .contact-list p {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      padding: 28px 0 60px;
+    }
+
+    .footer-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 30px;
+      box-shadow: var(--shadow);
+    }
+
     .small {
       font-size: 14px;
-      color: #666;
-      margin-top: 28px;
+      color: var(--muted);
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(0,0,0,.25);
+
+    @media (max-width: 800px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-card,
+      .section-card,
+      .footer-card {
+        padding: 30px 24px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lead, p, li {
+        font-size: 17px;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <p class="eyebrow">MTX Law</p>
-    <h1>Website Coming Soon</h1>
-    <p>Texas civil litigation and trial counsel.</p>
-    <p>Our website is currently under development.</p>
-    <p>For inquiries, please contact <a href="mailto:info@mtxlaw.com">info@mtxlaw.com</a>.</p>
-    <p class="small">Attorney advertising where applicable. Prior results do not guarantee a similar outcome.</p>
- <p class="small">
-  <a href="/privacy.html">Privacy Policy</a>
-</p>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="/">MTX Law</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#communication">Communication</a>
+        <a href="#contact">Contact</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <p class="eyebrow">Texas Legal Services</p>
+          <h1>MTX Law</h1>
+          <p class="lead">
+            MTX Law is a Texas-based law firm providing legal services to clients in Texas.
+            The firm assists individuals and businesses that contact the firm directly for legal guidance, case evaluation, dispute resolution, and representation where appropriate.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">Contact MTX Law</a>
+            <a class="button" href="/privacy.html">View Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-card">
+          <h2>About MTX Law</h2>
+          <p>
+            MTX Law is a law firm serving clients in Texas. This website is intended to provide general information about the firm and the legal services it offers.
+          </p>
+          <p>
+            MTX Law communicates directly with clients, prospective clients, and other persons involved in legal matters, including by phone, email, and text when appropriate and after direct contact and consent.
+          </p>
+          <p>
+            This website is informational in nature and is not intended to create an attorney-client relationship.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-card">
+          <h2>Legal Services</h2>
+          <div class="grid">
+            <div class="mini-card">
+              <h3>Initial Consultation & Case Review</h3>
+              <p>
+                MTX Law reviews inquiries from individuals and businesses seeking legal assistance in Texas and evaluates potential legal issues, disputes, and next steps.
+              </p>
+            </div>
+            <div class="mini-card">
+              <h3>Dispute Resolution</h3>
+              <p>
+                The firm provides legal services related to disputes, negotiations, claims evaluation, and pre-suit efforts where appropriate.
+              </p>
+            </div>
+            <div class="mini-card">
+              <h3>Litigation & Representation</h3>
+              <p>
+                MTX Law provides representation in legal matters in Texas, including litigation and related legal proceedings when appropriate to the client’s matter.
+              </p>
+            </div>
+            <div class="mini-card">
+              <h3>Ongoing Client Communication</h3>
+              <p>
+                The firm communicates with clients and prospective clients regarding consultations, scheduling, status updates, and active legal matters.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="communication">
+      <div class="container">
+        <div class="section-card">
+          <h2>How MTX Law Communicates</h2>
+          <p>
+            MTX Law may communicate with clients and prospective clients by telephone, email, and text regarding direct inquiries, consultations, scheduling, status updates, and legal matters.
+          </p>
+          <p>
+            MTX Law does not use this website to collect consent for text messaging through a webform. Text communications, when used, are direct and conversational and are not used for mass marketing.
+          </p>
+          <p>
+            Message frequency may vary. Message and data rates may apply. Reply STOP to opt out of text messages. Reply HELP for assistance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-card">
+          <h2>Contact MTX Law</h2>
+          <div class="contact-list">
+            <p><strong>Email:</strong> <a href="mailto:info@mtxlaw.com">info@mtxlaw.com</a></p>
+            <p><strong>Location:</strong> Texas</p>
+            <p><strong>Availability:</strong> By appointment</p>
+          </div>
+          <p>
+            Prospective clients may contact MTX Law directly to request information about the firm’s legal services.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <p class="small">
+          Attorney advertising where applicable. Prior results do not guarantee a similar outcome.
+          Submitting information through this website or by email does not create an attorney-client relationship.
+          Do not send confidential or time-sensitive information unless and until an attorney-client relationship has been formally established.
+        </p>
+        <p class="small">
+          <a href="/privacy.html">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
