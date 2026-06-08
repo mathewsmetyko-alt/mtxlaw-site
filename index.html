@@ -255,8 +255,7 @@
       object-fit: contain;
       filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.05);
       margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeIn 1s ease 0.1s forwards;
+      opacity: 1;
     }
 
     .hero-eyebrow {
@@ -266,8 +265,7 @@
       color: var(--gold);
       text-transform: uppercase;
       margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.3s forwards;
+      opacity: 1;
     }
 
     .hero-title {
@@ -278,8 +276,7 @@
       line-height: 1.08;
       margin-bottom: 0;
       letter-spacing: 0.02em;
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.5s forwards;
+      opacity: 1;
     }
 
     .hero-title .gold-text {
@@ -294,8 +291,7 @@
       gap: 1.5rem;
       margin: 2.5rem auto;
       max-width: 500px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.7s forwards;
+      opacity: 1;
     }
 
     .hero-rule-line {
@@ -322,8 +318,7 @@
       line-height: 1.65;
       max-width: 640px;
       margin: 0 auto 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.85s forwards;
+      opacity: 1;
     }
 
     .hero-sub {
@@ -334,8 +329,7 @@
       text-transform: uppercase;
       font-family: 'Cinzel', serif;
       margin-bottom: 3rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.95s forwards;
+      opacity: 1;
     }
 
     .hero-badges {
@@ -344,8 +338,7 @@
       flex-wrap: wrap;
       margin-bottom: 3rem;
       justify-content: center;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1.05s forwards;
+      opacity: 1;
     }
 
     .badge {
@@ -363,8 +356,7 @@
       display: flex;
       gap: 1.2rem;
       justify-content: center;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1.15s forwards;
+      opacity: 1;
     }
 
     .btn-primary {
@@ -418,7 +410,7 @@
       align-items: center;
       gap: 0.5rem;
       opacity: 0;
-      animation: fadeIn 1s ease 1.8s forwards;
+      opacity: 0.6;
     }
 
     .hero-scroll span {
@@ -1051,12 +1043,6 @@
     }
 
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -1605,17 +1591,7 @@
   // Auto copyright year
   document.getElementById('copy-year').textContent = new Date().getFullYear();
 
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => revealObserver.observe(el));
+  // Scroll reveal disabled — elements visible by default
 
   // Nav scroll shadow + active section highlighting
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
