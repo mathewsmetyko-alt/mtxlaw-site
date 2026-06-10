@@ -72,7 +72,8 @@
       --text-mid: #5A5A5A;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { overflow-x: hidden; max-width: 100%; }
 
     html { scroll-behavior: smooth; }
 
@@ -167,7 +168,7 @@
     /* ─── HERO ─────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
-      background: var(--maroon-deep);
+      background: var(--maroon-deep); /* fallback */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -255,7 +256,9 @@
       position: relative;
       z-index: 2;
       max-width: 860px;
+      width: 100%;
       margin: 0 auto;
+      padding: 0 1rem;
     }
 
     /* Logo centered above title */
@@ -514,9 +517,12 @@
     .practice-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--gold-dark);
-      border: 1.5px solid var(--gold-dark);
+      gap: 0;
+      background: var(--off-white);
+    }
+    .practice-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      margin: -1px 0 0 -1px;
     }
 
     .practice-card {
@@ -653,9 +659,9 @@
     .about-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1rem;
       margin: 2rem 0;
-      padding: 2rem 0;
+      padding: 1.5rem 0;
       border-top: 1px solid rgba(201,168,76,0.25);
       border-bottom: 1px solid rgba(201,168,76,0.25);
     }
@@ -739,7 +745,7 @@
 
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
@@ -816,11 +822,15 @@
     .results-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.15);
+      gap: 0;
+      background: transparent;
       border: 1px solid rgba(255,255,255,0.15);
       max-width: 900px;
       margin: 0 auto;
+    }
+    .result-item {
+      border: 1px solid rgba(255,255,255,0.1);
+      margin: -1px 0 0 -1px;
     }
 
     .result-item {
@@ -1091,8 +1101,7 @@
     }
 
     /* ─── RESPONSIVE ────────────────────────────────────── */
-    @media (max-width: 900px) {
-      nav { padding: 0 1.5rem; }
+    
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 8rem 2rem 2rem; }
@@ -1227,8 +1236,7 @@
       background: var(--gold);
       margin-top: 2px;
     }
-    @media (max-width: 900px) {
-      .nav-hamburger { display: flex; }
+    
       .nav-links { display: none !important; }
     }
   
@@ -1280,9 +1288,12 @@
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
+      gap: 0;
+      background: transparent;
+    }
+    .why-card {
+      border: 1px solid rgba(255,255,255,0.07);
+      margin: -1px 0 0 -1px;
     }
 
     .why-card {
@@ -1393,8 +1404,7 @@
     }
 
     /* ─── RESPONSIVE — new sections ────────────────────────── */
-    @media (max-width: 900px) {
-      .why-section { padding: 4rem 2rem; }
+    
       .why-grid { grid-template-columns: 1fr; }
       .credentials-list { grid-template-columns: 1fr; }
     }
@@ -1518,8 +1528,7 @@
       padding: 1.5rem 1.5rem 0.8rem;
     }
 
-    @media (max-width: 900px) {
-      .gallery-section { padding: 4rem 2rem 0; }
+    
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-wide { grid-column: span 2; }
     }
@@ -1602,9 +1611,15 @@
     .service-cities-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.06);
+      gap: 0;
+      background: transparent;
       border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .service-city-card {
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .service-city-card:last-child {
+      border-right: none;
     }
 
     .service-city-card {
@@ -1693,18 +1708,127 @@
     }
 
     /* ─── RESPONSIVE — service section ─────────────────────── */
-    @media (max-width: 900px) {
-      .service-inner { padding: 0 2rem 2rem; }
+    
       .service-city-label { left: 2rem; bottom: 5%; }
       .service-cities-grid { grid-template-columns: 1fr 1fr; }
       .service-footer-bar { padding: 1rem 2rem; }
     }
 
-    @media (max-width: 600px) {
-      .service-cities-grid { grid-template-columns: 1fr; }
+    
     }
 
-  </style>
+    /* ═══ RESPONSIVE — COMPREHENSIVE MOBILE FIX ══════════════ */
+
+    /* Tablet — 900px */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none !important; }
+      .nav-hamburger { display: flex; }
+
+      .hero { padding: 6rem 1.5rem 3rem; min-height: auto; }
+      .hero-title { font-size: 2.4rem; }
+      .hero-tagline { font-size: 1rem; }
+      .hero-badges { gap: 0.5rem; }
+      .badge { font-size: 0.55rem; padding: 0.3rem 0.7rem; }
+      .hero-ctas { flex-direction: column; align-items: center; gap: 0.8rem; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
+
+      .trust-bar { padding: 1rem 1.5rem; gap: 1.2rem; }
+      .trust-item { font-size: 0.6rem; }
+      .trust-dot { display: none; }
+
+      .section { padding: 3.5rem 1.5rem; }
+      .section-title { font-size: 1.5rem; }
+
+      .why-section { padding: 3.5rem 1.5rem; }
+      .why-header { margin-bottom: 2rem; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-card { padding: 1.5rem; }
+
+      .practice-grid { grid-template-columns: 1fr; }
+      .practice-card { margin: 0; border: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
+
+      .gallery-section { padding: 3rem 1.5rem 0; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-large { grid-column: span 2; }
+      .gallery-wide { grid-column: span 2; max-height: 220px; }
+      .gallery-wide img { min-height: 220px; max-height: 220px; }
+
+      .about-section { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; gap: 2rem; }
+      .about-placeholder { max-width: 100%; }
+      .about-photo-frame::before { display: none; }
+      .military-badge { right: 0; bottom: -10px; }
+      .credentials-list { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .stat-num { font-size: 1.4rem; }
+
+      .service-section { padding: 3.5rem 0 0; }
+      .service-inner { padding: 0 1.5rem 2rem; }
+      .service-city-label { left: 1.5rem; }
+      .service-city-name { font-size: 1.8rem; }
+      .service-cities-grid { grid-template-columns: 1fr 1fr; }
+      .service-city-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .service-footer-bar { padding: 1rem 1.5rem; }
+      .service-footer-bar p { font-size: 0.6rem; }
+
+      .results-section { padding: 3.5rem 1.5rem; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+      .result-amount { font-size: 1.3rem; }
+
+      .testimonials-section { padding: 3.5rem 1.5rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .contact-section { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+
+      footer { padding: 2rem 1.5rem 1.5rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
+    }
+
+    /* Mobile — 480px */
+    @media (max-width: 480px) {
+      .hero { padding: 5rem 1rem 3rem; }
+      .hero-title { font-size: 1.9rem; }
+      .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.2em; }
+      .hero-sub { font-size: 0.75rem; }
+      .hero-badges { flex-direction: column; align-items: center; }
+
+      .nav-logo-text .nav-firm-name { font-size: 0.72rem; }
+
+      .section { padding: 2.5rem 1rem; }
+      .section-title { font-size: 1.3rem; }
+      .section-intro { font-size: 0.95rem; }
+
+      .why-section { padding: 2.5rem 1rem; }
+      .why-card { padding: 1.2rem 1rem; }
+      .why-card h3 { font-size: 0.85rem; }
+      .why-card p { font-size: 0.9rem; }
+
+      .gallery-section { padding: 2rem 0 0; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-large, .gallery-wide { grid-column: span 1; }
+
+      .about-section { padding: 2.5rem 1rem; }
+      .about-stats { gap: 0; }
+      .stat-num { font-size: 1.2rem; }
+      .stat-label { font-size: 0.6rem; }
+
+      .service-cities-grid { grid-template-columns: 1fr; }
+      .service-city-name { font-size: 1.4rem; }
+
+      .results-grid { grid-template-columns: 1fr 1fr; }
+      .result-amount { font-size: 1.1rem; }
+
+      .contact-section { padding: 2.5rem 1rem; }
+      .contact-form { padding: 1.5rem 1rem; }
+
+      footer { padding: 1.5rem 1rem 1rem; }
+      .footer-bottom p { font-size: 0.65rem; }
+
+      .trust-bar { padding: 0.8rem 1rem; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+    }
+</style>
 </head>
 <body>
 
