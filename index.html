@@ -223,6 +223,8 @@
       border-top: 1px solid rgba(201,168,76,0.3);
       border-left: 1px solid rgba(201,168,76,0.3);
       pointer-events: none;
+      background: transparent;
+      pointer-events: none;
     }
 
     /* Corner ornament top-right */
@@ -232,6 +234,8 @@
       width: 80px; height: 80px;
       border-top: 1px solid rgba(201,168,76,0.3);
       border-right: 1px solid rgba(201,168,76,0.3);
+      pointer-events: none;
+      background: transparent;
       pointer-events: none;
     }
 
@@ -243,6 +247,8 @@
       border-bottom: 1px solid rgba(201,168,76,0.3);
       border-left: 1px solid rgba(201,168,76,0.3);
       pointer-events: none;
+      background: transparent;
+      pointer-events: none;
     }
 
     /* Corner ornament bottom-right */
@@ -252,6 +258,8 @@
       width: 80px; height: 80px;
       border-bottom: 1px solid rgba(201,168,76,0.3);
       border-right: 1px solid rgba(201,168,76,0.3);
+      pointer-events: none;
+      background: transparent;
       pointer-events: none;
     }
 
@@ -1255,6 +1263,7 @@
       top: 0; left: 5rem; right: 5rem;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+      z-index: 2;
     }
 
     .why-header {
@@ -1313,7 +1322,7 @@
       font-family: 'Cinzel', serif;
       font-size: 0.92rem;
       font-weight: 600;
-      color: #fff;
+      color: #fff !important;
       margin-bottom: 0.8rem;
       letter-spacing: 0.04em;
       line-height: 1.4;
@@ -1321,7 +1330,7 @@
 
     .why-card p {
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.75) !important;
       line-height: 1.8;
     }
 
@@ -1461,7 +1470,7 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
       gap: 4px;
     }
@@ -1485,17 +1494,17 @@
     }
 
     .gallery-large {
-      grid-row: span 1;
+      grid-column: span 1;
     }
 
     .gallery-wide {
-      grid-column: span 3;
-      max-height: 340px;
+      grid-column: span 2;
+      max-height: 320px;
     }
 
     .gallery-wide img {
-      min-height: 340px;
-      max-height: 340px;
+      min-height: 320px;
+      max-height: 320px;
       object-position: center 35%;
     }
 
@@ -1522,6 +1531,7 @@
       background: var(--maroon-deep);
       padding: 5rem 0 0;
       overflow: hidden;
+      color: #fff;
     }
 
     .service-inner {
@@ -1545,6 +1555,7 @@
       overflow: hidden;
       border-top: 1px solid rgba(201,168,76,0.2);
       max-height: 180px;
+      background: var(--maroon-deep);
     }
 
     .skyline-img {
