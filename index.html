@@ -1119,22 +1119,16 @@
       max-width: 360px;
     }
     .about-placeholder-inner {
-      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(201,168,76,0.25);
-      padding: 3.5rem 2.5rem;
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 3rem 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
       position: relative;
     }
-    .about-placeholder-inner::before {
-      content: '';
-      position: absolute;
-      top: 10px; left: 10px; right: -10px; bottom: -10px;
-      border: 1px solid rgba(201,168,76,0.1);
-      pointer-events: none;
-    }
+
     .about-logo-mark {
       width: 110px;
       height: 110px;
@@ -1545,12 +1539,12 @@
       margin-top: 0.8rem;
     }
 
-    /* Primary city — SA full width */
     .service-city-primary {
       position: relative;
       width: 100%;
       overflow: hidden;
       border-top: 1px solid rgba(201,168,76,0.2);
+      max-height: 180px;
     }
 
     .skyline-img {
@@ -1558,10 +1552,9 @@
       width: 100%;
     }
 
-    /* Gold tint: white areas become gold, black becomes transparent */
     .skyline-gold {
-      filter: brightness(0) saturate(100%) invert(75%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(1.1);
-      opacity: 0.25;
+      filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.85);
+      opacity: 0.2;
     }
 
     /* White tint for secondary */
@@ -1610,14 +1603,14 @@
 
     .service-city-card {
       position: relative;
-      background: rgba(255,255,255,0.02);
+      background: var(--maroon-deep);
       padding: 2rem 1.5rem 1.5rem;
       overflow: hidden;
       transition: background 0.3s;
     }
 
     .service-city-card:hover {
-      background: rgba(255,255,255,0.05);
+      background: var(--maroon-light);
     }
 
     .service-city-card img {
@@ -1686,9 +1679,9 @@
     .footer-skyline-img {
       width: 100%;
       display: block;
-      filter: brightness(0) saturate(100%) invert(75%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(0.8);
-      opacity: 0.18;
-      max-height: 80px;
+      filter: brightness(0) invert(1);
+      opacity: 0.08;
+      max-height: 60px;
       object-fit: cover;
       object-position: center top;
     }
