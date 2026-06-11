@@ -1440,6 +1440,11 @@
     .nav-dropdown-menu li a:hover {
       background: rgba(201,168,76,0.12); color: var(--gold-light);
     }
+    /* Dropdown opens on hover (desktop) */
+    @media (min-width: 901px) {
+      .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    }
+
 /* ═══ INNER PAGES ═══ */
 
     /* ─── INNER PAGE SPECIFIC ──────────────────────── */
@@ -1770,20 +1775,15 @@
   document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
   });
-  // Dropdown
+  // Dropdown — hover handles open/close on desktop; click works on the link
   const dropToggle = document.querySelector('.nav-dropdown-toggle');
-  const dropMenu = document.querySelector('.nav-dropdown-menu');
-  if (dropToggle && dropMenu) {
-    dropToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      dropMenu.style.display = dropMenu.style.display === 'block' ? 'none' : 'block';
-    });
-    document.addEventListener('click', (e) => {
-      if (!dropToggle.contains(e.target) && !dropMenu.contains(e.target)) {
-        dropMenu.style.display = 'none';
-      }
+  if (dropToggle) {
+    dropToggle.addEventListener('click', function(e) {
+      // On mobile/tablet the dropdown link just navigates to #practice
+      // On desktop hover shows the menu, so allow normal navigation
     });
   }
+
 </script>
 
 </body>

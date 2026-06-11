@@ -183,6 +183,11 @@ nav {
   transition: background 0.15s, color 0.15s;
 }
 .nav-dropdown-menu li a:hover { background: rgba(201,168,76,0.12); color: var(--gold-light); }
+    /* Dropdown opens on hover (desktop) */
+    @media (min-width: 901px) {
+      .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    }
+
 
 /* ─── MOBILE NAV ─────────────────────────────────────────── */
 .nav-hamburger {
@@ -1163,17 +1168,17 @@ footer { background: var(--charcoal); padding: 3rem 5rem 2rem; border-top: 1px s
     <div class="footer-col">
       <h4>Practice Areas</h4>
       <ul>
-        <li><a href="#practice">Personal Injury</a></li>
-        <li><a href="#practice">Commercial Trucking</a></li>
-        <li><a href="#practice">Business Litigation</a></li>
-        <li><a href="#practice">Contract Review</a></li>
-        <li><a href="#practice">DTPA Claims</a></li>
+        <li><a href="practice-pi.html">Personal Injury</a></li>
+        <li><a href="practice-trucking.html">Commercial Trucking</a></li>
+        <li><a href="practice-business.html">Business Litigation</a></li>
+        <li><a href="practice-business-general.html">Business Law</a></li>
+        <li><a href="practice-dtpa.html">DTPA Claims</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>The Firm</h4>
       <ul>
-        <li><a href="#about">About Mathews</a></li>
+        <li><a href="about.html">About Mathews</a></li>
         <li><a href="#results">Results</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Free Consultation</a></li>

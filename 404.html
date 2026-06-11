@@ -1435,6 +1435,11 @@
     .nav-dropdown-menu li a:hover {
       background: rgba(201,168,76,0.12); color: var(--gold-light);
     }
+    /* Dropdown opens on hover (desktop) */
+    @media (min-width: 901px) {
+      .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    }
+
 /* ═══ INNER PAGES ═══ */
 
     /* ─── INNER PAGE SPECIFIC ──────────────────────── */
