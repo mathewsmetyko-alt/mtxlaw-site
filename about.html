@@ -396,7 +396,34 @@ footer { background: var(--charcoal); padding: 3.5rem 5rem 2rem; border-top: 1px
   .cta-band { padding: 2.5rem 1rem; }
   footer { padding: 1.8rem 1rem 1rem; }
 }
-
+/* ─── ABOUT PAGE GRIDS ───────────────────────────────────── */
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+.about-cred-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 700px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-intro-grid > div:first-child {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .about-cred-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -468,11 +495,11 @@ footer { background: var(--charcoal); padding: 3.5rem 5rem 2rem; border-top: 1px
   <div class="page-layout">
     <div class="page-main">
 
-      <div style="display:grid;grid-template-columns:260px 1fr;gap:3rem;align-items:start;margin-bottom:3rem;">
+      <div class="about-intro-grid">
         <div style="position:relative;">
           <img src="headshot-about.jpg" alt="Mathews Metyko — San Antonio Trial Attorney"
             style="width:100%;display:block;filter:contrast(1.05);" />
-          <div style="position:absolute;bottom:0;right:-12px;background:var(--gold);padding:0.6rem 1rem;">
+          <div style="position:absolute;bottom:0;right:0;background:var(--gold);padding:0.6rem 1rem;">
             <span style="font-family:'Cinzel',serif;font-size:0.6rem;color:var(--maroon-deep);display:block;letter-spacing:0.15em;text-transform:uppercase;">U.S. Army</span>
             <span style="font-family:'Cinzel',serif;font-size:0.8rem;font-weight:700;color:var(--maroon-deep);display:block;">OEF Veteran</span>
           </div>
@@ -486,7 +513,7 @@ footer { background: var(--charcoal); padding: 3.5rem 5rem 2rem; border-top: 1px
       </div>
 
       <h2>Education &amp; Credentials</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+      <div class="about-cred-grid">
         <div style="border-left:3px solid var(--gold);padding-left:1.2rem;">
           <p style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;color:var(--maroon);text-transform:uppercase;margin-bottom:0.3rem;">Law School</p>
           <p style="font-weight:600;margin-bottom:0;">St. Mary's University School of Law</p>
